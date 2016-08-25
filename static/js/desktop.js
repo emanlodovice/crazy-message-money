@@ -92,8 +92,8 @@ function open_ws(msg){
            console.log(evt.data);
 	       msg = JSON.parse(evt.data)
 
-           if( msg.event == "x" ){
-	       // process message x
+           if( msg.event == "swipe" ){
+	            playVideo();
            }else if( msg.event == 'y' ){
 	       // process message y
            }else if( msg.event == 'z' ) {
@@ -114,6 +114,6 @@ function open_ws(msg){
 ///////// jimmmmyy ///////////
 function jimmyReady() {
     $(document).on('click', function() {
-        ws_send({'message': 'imong mama'});
+        ws_send({'event': 'swipe'});
     });
 }
