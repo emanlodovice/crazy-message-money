@@ -23,11 +23,16 @@ video {
 
 img {
     transform: rotate(90deg);
-    width: 200px;
-    // transition:2s;
-    // -webkit-transition:2s;
-    // -moz-transition:2s;
+    width: 250px;
     position:absolute;
     bottom: 0px;
     right: 45%;
+}
+
+.text {
+    color: red;
+    font-size: 30px;
+    position: absolute;
+    display: inline-block;
+    font-family: Arial;
 }
