@@ -25,14 +25,15 @@ $(document).ready(function() {
         console.log(money);
         money.draggable({
             containment: 'parent',
-            revert: true,
-            revertDuration: 0,
-            drag: function() {
-                if (parseInt($(this).css('top')) === 0) {
+            revert: function() {
+                if ($(this).css('top') === '0px') {
+                    // send
                     audioElement.play();
                     ws_send({'event': 'swipe'});
+                    return true;
                 }
-            }
+            },
+            revertDuration: 0,
         });
     }
 });
