@@ -11,6 +11,9 @@ $(document).ready(function() {
     var money = null;
     var minDistance = 20;
 
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'video/cash.wav');
+
     addMoney();
 
     function addMoney() {
@@ -25,8 +28,8 @@ $(document).ready(function() {
             revert: true,
             revertDuration: 0,
             drag: function() {
-
-                if ($(this).css('top') === 0) {
+                if (parseInt($(this).css('top')) === 0) {
+                    audioElement.play();
                     ws_send({'event': 'swipe'});
                 }
             }

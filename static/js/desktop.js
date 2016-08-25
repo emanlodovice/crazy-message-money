@@ -66,7 +66,7 @@ $(document).ready(function () {
     var msg = { event: 'register', };
     ws_send(msg);
 
-    jimmyReady();
+    // jimmyReady();
 }); // ready end
 
 
@@ -127,8 +127,8 @@ function open_ws(msg){
 
 
 ///////// jimmmmyy ///////////
-function jimmyReady() {
-    $(document).on('click', function() {
-        ws_send({'event': 'swipe'});
-    });
-}
+// function jimmyReady() {
+//     $(document).on('click', function() {
+//         ws_send({'event': 'swipe'});
+//     });
+// }
