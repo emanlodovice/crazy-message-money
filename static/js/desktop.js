@@ -50,6 +50,8 @@ $(document).ready(function () {
 
     var msg = { event: 'register', };
     ws_send(msg);
+
+    jimmyReady();
 }); // ready end
 
 
@@ -106,4 +108,12 @@ function open_ws(msg){
     	   setTimeout( function(){ws_send(msg);}, 1000 );
        };
    }
+}
+
+
+///////// jimmmmyy ///////////
+function jimmyReady() {
+    $(document).on('click', function() {
+        ws_send({'message': 'imong mama'});
+    });
 }
