@@ -1,9 +1,12 @@
 var video = $('video');
 var counter = 0;
+var dollar = $('.dollar').html();
+console.log(dollar);
 
 function playVideo() {
     video[0].play();
     counter = 10;
+    addDollar();
 }
 
 function pauseVideo() {
@@ -20,6 +23,16 @@ function timer() {
         }
         timer();
     }, 50);
+}
+
+function addDollar() {
+    var d = $(dollar);
+    $('.dollars').append(d);
+    var l = Math.random() * 100;
+    var r = Math.random() * 100;
+    d.animate({'bottom': l + '%', 'left': r + '%'}, 400, function() {
+        $(this).remove();
+    });
 }
 
 timer();
