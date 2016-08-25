@@ -7,6 +7,9 @@ import tornado.websocket
 class SocketHandler(tornado.websocket.WebSocketHandler):
     clients = []
 
+    def check_origin(self, origin):
+        return True
+
     def open(self):
         print 'ws:open'
         SocketHandler.clients.append(self)
@@ -32,8 +35,14 @@ class Main(tornado.web.RequestHandler):
         self.render('desktop.html')
 
 
+class Client(tornado.web.RequestHandler):
+    def get(self):
+        self.render('mobile.html')
+
+
 application = tornado.web.Application([
     (r"/", Main),
+    (r"/client", Client),
     (r"/websocket", SocketHandler),
     (r'/(.*)', tornado.web.StaticFileHandler, {'path': 'static/'}),
 ], debug=True)
